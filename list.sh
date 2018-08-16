@@ -11,7 +11,7 @@ get_image_list() {
 
 ##### get tag list
 #output
-#   array   it list
+#   array   tag list
 get_tag_list() {
     curl --silent --user "$REG_USER:$REG_PASSWORD" \
         -X GET "$REG_URL/v2/$IMAGE/tags/list" | \
@@ -21,7 +21,7 @@ get_tag_list() {
 ##### get image id
 #para   $1      image
 #       $2      tag
-#output string  image id
+#output string  id
 get_image_id() {
     curl --silent --user "$REG_USER:$REG_PASSWORD" \
         -H 'Accept: application/vnd.docker.distribution.manifest.v2+json' \
@@ -33,7 +33,7 @@ get_image_id() {
 ##### get image create time
 #para   $1      image
 #       $2      tag
-#output string  image create time
+#output string  create time
 get_image_create_time() {
     curl --silent --user "$REG_USER:$REG_PASSWORD" \
         -X GET "$REG_URL/v2/$1/manifests/$2" | \
